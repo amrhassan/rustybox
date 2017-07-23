@@ -1,10 +1,8 @@
 
 // 2
 
-pub fn sum_even_fibs_under_4_million() -> u32 {
-    let upper = 4_000_000;
-
-    let fibs = Fib::start_from(1, 2).take_while(|x| x < &upper);
+pub fn sum_even_fibs(up_to: u32) -> u32 {
+    let fibs = Fib::start_from(1, 2).take_while(|x| *x < up_to);
 
     let even_fibs = fibs.filter(|x| x % 2 == 0);
 
