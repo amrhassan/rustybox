@@ -1,0 +1,7 @@
+[package]
+name = "rusty-box"
+version = "0.1.0"
+authors = ["Amr Hassan <amr.hassan@gmail.com>"]
+
+[dependencies]
+num = "0.1.40"
