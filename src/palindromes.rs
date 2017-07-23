@@ -1,4 +1,8 @@
 
+// 4
+
+extern crate num;
+
 use std::fmt::Display;
 
 fn is_palindrome<T : Eq + PartialEq>(ts: &[T]) -> bool {
@@ -13,8 +17,8 @@ fn is_palindrome_display<T : Display>(d: T) -> bool {
 fn products_of_n_digit_numbers(n: u32) -> Vec<u32> {
     let mut products = Vec::new();
     let base: u32 = 10;
-    for x in 1..base.pow(n) {
-        for y in 1..base.pow(n) {
+    for x in base.pow(n-1)..base.pow(n) {
+        for y in base.pow(n-1)..(x+1) {
             products.push(x*y);
         }
     }
