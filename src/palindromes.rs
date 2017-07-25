@@ -14,6 +14,10 @@ fn is_palindrome_display<T : Display>(d: T) -> bool {
     is_palindrome(format!("{}", d).as_bytes())
 }
 
+fn is_palindrome_integer(n: u32) -> bool {
+    false
+}
+
 fn products_of_n_digit_numbers(n: u32) -> Vec<u32> {
     let mut products = Vec::new();
     let base: u32 = 10;
@@ -34,4 +38,13 @@ pub fn largest_palindrome_of_product_of_n_digit_numbers(n: u32) -> u32 {
 
     palindromes.sort();
     *(palindromes.last().unwrap())
+}
+
+#[cfg(test)]
+mod tests {
+
+    #[test]
+    fn is_palindrome() {
+        println!("TEST IS OK")
+    }
 }
