@@ -34,5 +34,6 @@ impl Iterator for PrimesIterator {
 
 
 pub fn is_prime(n: &u64) -> bool {
-    !(2..(n-1)).any(|divisor| n % divisor == 0)
+    let sqrt_n: u64 = (*n as f64).sqrt() as u64;
+    !(2..(sqrt_n+1)).any(|divisor| n % divisor == 0)
 }
