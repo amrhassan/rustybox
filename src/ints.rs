@@ -59,3 +59,38 @@ pub fn least_common_multiple(ns: Vec<u64>) -> u64 {
 
     result
 }
+
+pub struct PythagoreanTriplets {
+    a: u32,
+    b: u32,
+    c: u32
+}
+
+impl PythagoreanTriplets {
+    pub fn new() -> PythagoreanTriplets {
+        PythagoreanTriplets { a: 1, b: 1, c: 1}
+    }
+}
+
+impl Iterator for PythagoreanTriplets {
+
+    type Item = (u32, u32, u32);
+
+    fn next (&mut self) -> Option<(u32, u32, u32)> {
+        'outermost: for c in self.c.. {
+            for b in self.b..c {
+                for a in (self.a+1)..b {
+                    if a.pow(2) + b.pow(2) == c.pow(2) {
+                        self.a = a;
+                        self.b = b;
+                        self.c = c;
+                        break 'outermost;
+                    }
+                }
+                self.a = 1;
+            }
+            self.b = 1;
+        }
+        Some((self.a, self.b, self.c))
+    }
+}
