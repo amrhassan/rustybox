@@ -140,7 +140,7 @@ pub fn divisor_count(n: u64, ps: &mut primes::CachedPrimes) -> u32 {
     primes::factorize_unique(n, ps)
         .values()
         .map(|v| v + 1)
-        .sum()
+        .product()
 }
 
 #[cfg(test)]
@@ -153,9 +153,20 @@ mod test {
         let one: Vec<u64> = divisors(1).collect();
         let three: Vec<u64> = divisors(3).collect();
         let twenty_eight: Vec<u64> = divisors(28).collect();
-        
+
         assert_eq!(one, vec![1]);
         assert_eq!(three, vec![3, 1]);
         assert_eq!(twenty_eight, vec![28, 14, 7, 4, 2, 1]);
+    }
+
+    #[test]
+    fn divisor_count_is_correct() {
+        let mut ps = primes::CachedPrimes::new();
+
+        assert_eq!(divisor_count(1, &mut ps), 1);
+        assert_eq!(divisor_count(3, &mut ps), 2);
+        assert_eq!(divisor_count(15, &mut ps), 4);
+        assert_eq!(divisor_count(21, &mut ps), 4);
+        assert_eq!(divisor_count(28, &mut ps), 6);
     }
 }
