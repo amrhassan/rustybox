@@ -143,6 +143,20 @@ pub fn divisor_count(n: u64, ps: &mut primes::CachedPrimes) -> u32 {
         .product()
 }
 
+pub fn factorial(n: u64) -> u64 {
+    if n == 0 || n == 1 {
+        1
+    } else {
+        n * factorial(n-1)
+    }
+}
+
+pub fn combination(n: u64, k: u64) -> u64 {
+    let num: u64 = (k+2..n).product();
+    let denom: u64 = (2..k).product();
+    num / denom
+}
+
 #[cfg(test)]
 mod test {
 
