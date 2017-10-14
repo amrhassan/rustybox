@@ -5,4 +5,4 @@ authors = ["Amr Hassan <amr.hassan@gmail.com>"]
 
 [dependencies]
 quickcheck = "0.4.1"
-nonsmallnum = "0.0.6"
+nonsmallnum = "0.0.7-alpha.2"
