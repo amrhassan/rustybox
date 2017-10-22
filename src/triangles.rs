@@ -33,9 +33,7 @@ pub fn longest_path_from_top_to_bottom(triangle: &str) -> i64 {
             .collect();
 
         for (&vertex, vertex_ix) in vertices.iter().zip(0..) {
-            println!("Connecting {} to {} with weight {}", vertex, new_vertices[vertex_ix], weights[vertex_ix]);
             graph.connect(vertex, new_vertices[vertex_ix], weights[vertex_ix]).unwrap();
-            println!("Connecting {} to {} with weight {}", vertex, new_vertices[vertex_ix+1], weights[vertex_ix+1]);
             graph.connect(vertex, new_vertices[vertex_ix+1], weights[vertex_ix+1]).unwrap();
         }
 
