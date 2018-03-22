@@ -7,3 +7,5 @@ authors = ["Amr Hassan <amr.hassan@gmail.com>"]
 quickcheck = "0.4.1"
 nonsmallnum = "0.0.7-alpha.3"
 graphic = "0.0.1-alpha.1"
+enum_traits        = "*"
+enum_traits_macros = "*"
